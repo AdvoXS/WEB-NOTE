@@ -1,6 +1,7 @@
 package com.advox.notes.model;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -8,7 +9,11 @@ import java.util.Set;
 /**
  * Группа
  */
-@Data
+@Builder(toBuilder = true)
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
 @Entity
 @Table(name = "note_group", schema = "public")
 public class NoteGroup {
@@ -17,13 +22,14 @@ public class NoteGroup {
     private Long id;
 
     private String name;
-
-    @OneToMany(mappedBy="taskGroup", cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "taskGroup", cascade = CascadeType.PERSIST)
     private Set<NoteTask> noteTasks;
-
-    @OneToMany(mappedBy="noteGroup", cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "noteGroup", cascade = CascadeType.PERSIST)
     private Set<NoteInfo> noteInfos;
-
-    @OneToMany(mappedBy="refGroup", cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "refGroup", cascade = CascadeType.PERSIST)
     private Set<NoteReference> noteReferences;
+
 }

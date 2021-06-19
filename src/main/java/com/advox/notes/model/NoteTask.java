@@ -1,7 +1,6 @@
 package com.advox.notes.model;
 
-import lombok.Data;
-import lombok.Generated;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -9,7 +8,10 @@ import java.time.LocalDate;
 /**
  * Задача
  */
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
 @Entity
 @Table(name = "task", schema = "public")
 public class NoteTask {
