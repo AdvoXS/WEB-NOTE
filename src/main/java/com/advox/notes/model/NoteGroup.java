@@ -10,7 +10,7 @@ import java.util.Set;
  */
 @Data
 @Entity
-@Table(name = "NOTE_GROUP", schema = "public")
+@Table(name = "note_group", schema = "public")
 public class NoteGroup {
     @Id
     @GeneratedValue

@@ -13,8 +13,8 @@ public class NoteGroupDataController {
     @Autowired
     NoteGroupRepo groupRepo;
 
-    @GetMapping(value = "/group")
+    @GetMapping(value = "/groups")
     public List<NoteGroup> getAllGroups(){
-        return groupRepo.findBy();
+        return groupRepo.findAll();
     }
 }

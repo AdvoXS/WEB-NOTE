@@ -8,5 +8,6 @@ import java.util.List;
 public interface NoteGroupRepo extends CrudRepository<NoteGroup, Long> {
         NoteGroup getById(long id);
         NoteGroup getByName(String name);
-        List<NoteGroup> findBy();
+
+        List<NoteGroup> findAll();
 }
